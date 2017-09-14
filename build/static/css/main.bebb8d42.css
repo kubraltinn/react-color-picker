@@ -1,0 +1,38 @@
+.customColorPicker{
+float:left;
+border: 3px solid #000dcc;
+}
+
+.colorPicker-palettes{
+    width:100%;
+    display:table;		
+}
+
+.colorpicker-color{
+    display:table-cell;
+    width:1%;
+}
+.colortones {
+    float:left;
+    border-width: 0px;
+margin-top: 15px;
+}
+
+.colortones:hover .tone{
+opacity:0.40;}
+
+.colortones .tone:hover{
+opacity:1;}
+
+.colertones .tone{
+opacity: 0;
+transition: all 1s;}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+
+/*# sourceMappingURL=main.bebb8d42.css.map*/
