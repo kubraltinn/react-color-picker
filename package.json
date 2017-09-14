@@ -1,0 +1,39 @@
+{
+  "name": "react-color-picker",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-css-transition-replace": "^3.0.0",
+    "react-dom": "^15.6.1",
+    "react-scripts": "0.9.x",
+    "react-transition-group": "^2.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-plugin-react": "^7.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "description": "Make Your Own - Use the color_palettes.js to make your own palette.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kubraltinn/react-color-picker.git"
+  },
+  "keywords": [
+    "react",
+    "color",
+    "picker"
+  ],
+  "author": "“Kübra <“kubraltinn@gmail.com”>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kubraltinn/react-color-picker/issues"
+  },
+  "homepage": "https://github.com/kubraltinn/react-color-picker#readme"
+}
