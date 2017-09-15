@@ -26,10 +26,19 @@
 	<div class="row">
 		<div class="col-md-4">
 			<h2>
-				Heading
+				REACT COLOR PICKER
 			</h2>
 			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+				<b>PROPS:</b>
+			
+				
+				<b>selectedPalette</b>: PropTypes.string  => Use the selectedPalette to select your color palette</br></br></br></br>
+
+				<b>onColorSelect</b>: PropTypes.func => Use the onColorSelect to use color code
+</br></br></br></br>
+				<b>customColorPalette</b>: PropTypes.arrayOf(PropTypes.string) => Use the customColor Palette to make your own color palette 
+
+
 			</p>
 			<p>
 				<a class="btn" href="#">View details »</a>
@@ -38,15 +47,26 @@
 		<div class="col-md-4" id="app">
 		</div>
 		<div class="col-md-4">
-			<h2>
-				Heading
-			</h2>
+			
 			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+			</br></br></br>
+			class App extends Component {</br>
+			  render() {</br>
+			    return (</br>
+			      <div className="App">
+				<div className="App-header">
+				  <span>Welcome to React Cool Color Picker<span></br>
+				</div>
+				<p className="App-intro">
+				  It is so easy and funny!</br>
+				</p>
+				<span> < </span> ColorPicker onColorSelect={(colorCode) => alert(colorCode)} /></span></br>
+			      </div>
+			    );
+			  }
+			}
 			</p>
-			<p>
-				<a class="btn" href="#">View details »</a>
-			</p>
+	
 		</div>
 	</div>
 </div>

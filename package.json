@@ -1,6 +1,6 @@
 {
   "name": "react-cool-color-picker",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "private": false,
   "dependencies": {
     "react": "^15.6.1",
@@ -42,7 +42,9 @@
     "http-proxy-middleware": "0.17.3",
     "jest": "18.1.0",
     "json-loader": "0.5.4",
+    "node-sass": "^4.5.3",
     "object-assign": "4.1.1",
+    "phantomjs": "^2.1.7",
     "postcss-loader": "1.2.2",
     "promise": "7.1.1",
     "react-dev-utils": "^0.5.2",
@@ -57,7 +59,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "prepublish": "babel src --out-dir compiled",
-    "sendtoNpm" : "prepublish && publish",
+    "sendtoNpm": "prepublish && publish",
     "test": "node scripts/test.js --env=jsdom"
   },
   "description": "Make Your Own - Use the color_palettes.js to make your own palette.",

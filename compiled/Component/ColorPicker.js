@@ -57,11 +57,40 @@ var ColorPicker = function (_Component) {
 
 			return _react2.default.createElement(
 				"div",
-				{ className: "customColorPicker" },
+				{ className: "customColorPicker wine" },
+				_react2.default.createElement(
+					"div",
+					null,
+					_react2.default.createElement(
+						"span",
+						null,
+						_react2.default.createElement(
+							"b",
+							null,
+							"Main Colors"
+						)
+					)
+				),
 				pallettes,
+				_react2.default.createElement(
+					"div",
+					null,
+					_react2.default.createElement(
+						"span",
+						null,
+						_react2.default.createElement(
+							"b",
+							null,
+							"Second Colors"
+						)
+					)
+				),
 				colorBox
 			);
 		}
+	}, {
+		key: "slideRight",
+		value: function slideRight(e) {}
 	}, {
 		key: "renderPalette",
 		value: function renderPalette() {
@@ -73,8 +102,12 @@ var ColorPicker = function (_Component) {
 			});
 			return _react2.default.createElement(
 				"div",
-				{ className: "colorPicker-palettes" },
-				rendered
+				{ id: "slider" },
+				_react2.default.createElement(
+					"div",
+					{ className: "colorPicker-palettes" },
+					rendered
+				)
 			);
 		}
 	}, {
@@ -84,6 +117,7 @@ var ColorPicker = function (_Component) {
 
 			return _react2.default.createElement("div", {
 				className: "colorpicker-color",
+
 				key: "color_" + index,
 
 				"data-colorCode": colorCode,
@@ -126,23 +160,18 @@ var ColorPicker = function (_Component) {
 		value: function rendercolor(colorCode, index) {
 			var _this5 = this;
 
-			var b = colorCode;
-			return _react2.default.createElement(
-				"div",
-				{
-					className: "tone",
+			return _react2.default.createElement("div", {
+				className: "tone",
 
-					key: "color_" + index,
+				key: "color_" + index,
 
-					"data-colorCode": colorCode,
+				"data-colorCode": colorCode,
 
-					style: { backgroundColor: colorCode, width: 400, height: 20, transition: "background-color 2s" },
+				style: { backgroundColor: colorCode, transition: "background-color 1s" },
 
-					onClick: function onClick() {
-						_this5.props.onColorSelect(colorCode);
-					} },
-				b
-			);
+				onClick: function onClick() {
+					_this5.props.onColorSelect(colorCode);
+				} });
 		}
 	}, {
 		key: "onColorSelect",

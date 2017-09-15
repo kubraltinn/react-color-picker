@@ -28,15 +28,18 @@ export default class ColorPicker extends Component {
 
 		const colorBox = this.renderColorSelectionBox();
 
-		return (<div className="customColorPicker">
-
+		return (<div className="customColorPicker wine">
+			<div><span><b>Main Colors</b></span></div>
 			{pallettes}
-
+			<div><span><b>Second Colors</b></span></div>
 			{colorBox}
-
 		</div>
 
 		);
+
+	}
+
+	slideRight(e){
 
 	}
 
@@ -47,9 +50,11 @@ export default class ColorPicker extends Component {
 			return this.renderPaletteItem(item, index);
 
 		});
-		return (<div className="colorPicker-palettes">
+		return (
+<div id="slider">
+			<div className="colorPicker-palettes">
 			{rendered}
-		</div>);
+		</div></div>);
 
 	}
 
@@ -57,6 +62,7 @@ export default class ColorPicker extends Component {
 		return (
 			<div
 				className='colorpicker-color'
+
 				key={`color_${index}`}
 
 				data-colorCode={colorCode}
@@ -95,7 +101,6 @@ export default class ColorPicker extends Component {
 	}
 
 	rendercolor(colorCode, index) {
-		const b=colorCode;
 		return (<div
 			className="tone"
 
@@ -103,10 +108,9 @@ export default class ColorPicker extends Component {
 
 			data-colorCode={colorCode}
 
-			style={{ backgroundColor: colorCode, width: 400, height:20, transition: "background-color 2s"}}
+			style={{ backgroundColor: colorCode, transition: "background-color 1s"}}
 
 			onClick={() => {this.props.onColorSelect(colorCode);}}>
-			{b}
 		</div>
 
 
