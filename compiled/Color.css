@@ -1,0 +1,50 @@
+.customColorPicker{
+float:left;
+padding: 10px;
+margin-top: 10px;
+border-radius:10px;
+box-shadow:0 0 10px 5px rgba(0,0,0,0.5);
+}
+.wine {
+  background: #ffffff;
+}
+#slider{
+  overflow: hidden;
+    width: 100%;
+    margin: 15px 0 ;
+}
+
+.colorPicker-palettes{
+    width:100%;
+    display:table;
+}
+
+.colorpicker-color{
+    display:table-cell;
+    width:1%;
+    cursor:pointer;
+}
+
+.colorpicker-color:hover{
+border:1px solid rgba(0,0,0,0.5)
+}
+
+.colortones {
+    float:left;
+    border-width: 0px;
+    margin-top: 15px;
+}
+
+.colortones .tone{
+  width: 25px;
+    height: 25px;
+    float: left;
+    margin: 2px;
+    color: transparent;
+    border-radius: 5px;
+    cursor:pointer;
+
+}
+
+.colortones .tone:hover{
+border: 2px solid rgba(0,0,0,0.75);}

@@ -1,6 +1,6 @@
 {
   "name": "react-cool-color-picker",
-  "version": "0.1.7",
+  "version": "0.1.5",
   "private": false,
   "dependencies": {
     "react": "^15.6.1",
@@ -58,7 +58,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "prepublish": "babel src/Component --out-dir compiled",
+    "prepublish": "babel src --out-dir compiled",
     "sendtoNpm": "prepublish && publish",
     "test": "node scripts/test.js --env=jsdom"
   },
