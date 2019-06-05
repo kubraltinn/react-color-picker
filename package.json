@@ -3,6 +3,7 @@
   "version": "0.1.7",
   "private": false,
   "dependencies": {
+    "my-virtual-keyboard": "0.0.2",
     "react": "^15.6.1",
     "react-css-transition-replace": "^3.0.0",
     "react-dom": "^15.6.1",
