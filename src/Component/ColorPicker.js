@@ -3,142 +3,163 @@ import ColorPalettes from "./color_palettes";
 import "./Color.css";
 
 export default class ColorPicker extends Component {
+    constructor(props) {
+        super(props);
+        this.onColorSelect = this.onColorSelect.bind(this);
+        const colorPalette = ColorPalettes[props.selectedPalette] ?
+            ColorPalettes[props.selectedPalette] :
+            ColorPalettes.default;
 
-	constructor(props) {
+        if (props.customColorPalette) {
+            colorPalette = props.customColorPalette;
+        }
 
-		super(props);
-		this.onColorSelect = this.onColorSelect.bind(this);
-		let colorPalette = ColorPalettes[props.selectedPalette] ? ColorPalettes[props.selectedPalette] : ColorPalettes.default;
-		if (props.customColorPalette) {
+        this.state = {
+            currentColorPalette: colorPalette,
+            selectedcolor: "#fff",
+        };
+    }
 
-			colorPalette = props.customColorPalette;
+    render() {
+        const pallettes = this.renderPalette();
 
-		}
+        const colorBox = this.renderColorSelectionBox();
 
-		this.state = {
-			currentColorPalette: colorPalette,
-			selectedcolor:"#fff",
-		};
+        return ( <
+            div className = "customColorPicker wine" >
+            <
+            div >
+            <
+            span >
+            <
+            b > Main Colors < /b> < /
+            span > <
+            /div> { pallettes } <
+            div >
+            <
+            span >
+            <
+            b > Second Colors < /b> < /
+            span > <
+            /div> { colorBox } < /
+            div >
+        );
+    }
 
-	}
+    slideRight(e) {}
 
-	render() {
+    renderPalette() {
+        const rendered = this.state.currentColorPalette.map((item, index) => {
+            return this.renderPaletteItem(item, index);
+        });
+        return ( <
+            div id = "slider" >
+            <
+            div className = "colorPicker-palettes" > { rendered } < /div> < /
+            div >
+        );
+    }
 
-		const pallettes = this.renderPalette();
+    renderPaletteItem(colorCode, index) {
+        return ( <
+            div className = "colorpicker-color"
+            key = { `color_${index}` }
+            data - colorCode = { colorCode }
+            style = {
+                { backgroundColor: colorCode, height: 30 }
+            }
+            onClick = {
+                () => {
+                    this.onColorSelect(colorCode);
+                }
+            } >
+            <
+            /div>
+        );
+    }
 
-		const colorBox = this.renderColorSelectionBox();
+    renderColorSelectionBox() {
+        const tone1 = Color(this.state.selectedcolor, 80);
+        const tone2 = Color(this.state.selectedcolor, 60);
+        const tone3 = Color(this.state.selectedcolor, 40);
+        const tone4 = Color(this.state.selectedcolor, 20);
+        const tone5 = Color(this.state.selectedcolor, 0);
+        const tone6 = Color(this.state.selectedcolor, -20);
+        const tone7 = Color(this.state.selectedcolor, -40);
+        const tone8 = Color(this.state.selectedcolor, -60);
+        const tone9 = Color(this.state.selectedcolor, -80);
 
-		return (<div className="customColorPicker wine">
-			<div><span><b>Main Colors</b></span></div>
-			{pallettes}
-			<div><span><b>Second Colors</b></span></div>
-			{colorBox}
-		</div>
+        const result = [
+            tone1,
+            tone2,
+            tone3,
+            tone4,
+            tone5,
+            tone6,
+            tone7,
+            tone8,
+            tone9,
+        ];
 
-		);
+        const resultcolor = result.map((item, index) => {
+            return this.rendercolor(item, index);
+        });
+        return <div className = "colortones" > { resultcolor } < /div>;
+    }
 
-	}
+    rendercolor(colorCode, index) {
+        return ( <
+            div className = "tone"
+            key = { `color_${index}` }
+            data - colorCode = { colorCode }
+            style = {
+                {
+                    backgroundColor: colorCode,
+                    transition: "background-color 1s",
+                }
+            }
+            onClick = {
+                () => {
+                    this.props.onColorSelect(colorCode);
+                }
+            } >
+            <
+            /div>
+        );
+    }
 
-	slideRight(e){
-
-	}
-
-	renderPalette() {
-
-		const rendered = this.state.currentColorPalette.map((item, index) => {
-
-			return this.renderPaletteItem(item, index);
-
-		});
-		return (
-<div id="slider">
-			<div className="colorPicker-palettes">
-			{rendered}
-		</div></div>);
-
-	}
-
-	renderPaletteItem(colorCode, index) {
-		return (
-			<div
-				className='colorpicker-color'
-
-				key={`color_${index}`}
-
-				data-colorCode={colorCode}
-
-				style={{ backgroundColor: colorCode, height: 30}}
-
-				onClick={() => {this.onColorSelect(colorCode);}}>
-
-			</div>
-		);
-
-	}
-
-	renderColorSelectionBox() {
-		const tone1 = Color(this.state.selectedcolor,80);
-		const tone2 = Color(this.state.selectedcolor,60);
-		const tone3 = Color(this.state.selectedcolor,40);
-		const tone4 = Color(this.state.selectedcolor,20);
-		const tone5 = Color(this.state.selectedcolor,0);
-		const tone6 = Color(this.state.selectedcolor,-20);
-		const tone7 = Color(this.state.selectedcolor,-40);
-		const tone8 = Color(this.state.selectedcolor,-60);
-		const tone9 = Color(this.state.selectedcolor,-80);
-
-
-		const result = [tone1,tone2,tone3,tone4,tone5,tone6,tone7,tone8,tone9];
-
-		const  resultcolor= result.map((item, index) => {
-
-			return this.rendercolor(item, index);
-
-		});
-		return (<div className="colortones">
-			{resultcolor}
-		</div>);
-	}
-
-	rendercolor(colorCode, index) {
-		return (<div
-			className="tone"
-
-			key={`color_${index}`}
-
-			data-colorCode={colorCode}
-
-			style={{ backgroundColor: colorCode, transition: "background-color 1s"}}
-
-			onClick={() => {this.props.onColorSelect(colorCode);}}>
-		</div>
-
-
-		);
-	}
-
-	onColorSelect(colorCode){
-		this.setState({selectedcolor:colorCode});
-	}
+    onColorSelect(colorCode) {
+        this.setState({ selectedcolor: colorCode });
+    }
 }
 
 function Color(color, percent) {
-	var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * percent), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
-	return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+    var num = parseInt(color.slice(1), 16),
+        amt = Math.round(2.55 * percent),
+        R = (num >> 16) + amt,
+        G = ((num >> 8) & 0x00ff) + amt,
+        B = (num & 0x0000ff) + amt;
+    return (
+        "#" +
+        (
+            0x1000000 +
+            (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+            (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
+            (B < 255 ? (B < 1 ? 0 : B) : 255)
+        )
+        .toString(16)
+        .slice(1)
+    );
 }
 
-ColorPicker.defaultProps = {
-
-};
+ColorPicker.defaultProps = {};
 
 ColorPicker.propTypes = {
+    selectedPalette: PropTypes.string,
 
-	selectedPalette: PropTypes.string,
+    onColorSelect: PropTypes.func,
 
-	onColorSelect: PropTypes.func,
+    onColorRemove: PropTypes.func,
 
-	onColorRemove: PropTypes.func,
-
-	customColorPalette: PropTypes.arrayOf(PropTypes.string)
-
+    customColorPalette: PropTypes.arrayOf(PropTypes.string),
 };
