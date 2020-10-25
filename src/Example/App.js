@@ -1,11 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import ColorPicker from "./../Component/ColorPicker";
-
+import ColorPicker from "./../Component/color-picker";
 
 const Color = React.createClass({
-
 	backColor(color)
 	{
 		document.body.style.backgroundColor = color;

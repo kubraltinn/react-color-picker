@@ -1,13 +1,10 @@
-.customColorPicker {
+.custom-color-picker {
     float: left;
     padding: 10px;
     margin-top: 10px;
     border-radius: 10px;
     box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
-}
-
-.wine {
-    background: #ffffff;
+    background-color: white;
 }
 
 #slider {
@@ -16,28 +13,28 @@
     margin: 15px 0;
 }
 
-.colorPicker-palettes {
+.color-picker-palettes {
     width: 100%;
     display: table;
 }
 
-.colorpicker-color {
+.color-picker-color {
     display: table-cell;
     width: 1%;
     cursor: pointer;
 }
 
-.colorpicker-color:hover {
+.color-picker-color:hover {
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.colortones {
+.color-tones {
     float: left;
     border-width: 0px;
     margin-top: 15px;
 }
 
-.colortones .tone {
+.color-tones .tone {
     width: 25px;
     height: 25px;
     float: left;
@@ -47,6 +44,6 @@
     cursor: pointer;
 }
 
-.colortones .tone:hover {
+.color-tones .tone:hover {
     border: 2px solid rgba(0, 0, 0, 0.75);
 }
